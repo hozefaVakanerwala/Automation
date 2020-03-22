@@ -10,10 +10,6 @@ import java.util.Date;
 import java.util.List;
 
 public class SN_AuditNewInstancePage extends BasePage {
-    public SN_AuditNewInstancePage(WebDriver driver) {
-        super(driver);
-    }
-
     // Declare all elements
     private static By strProject = By.xpath("//span[text() = 'Project']//following::input[5]");
     private static By strAuditMaster = By.xpath("//span[text() = 'Audit Master']//following::input[5]");
@@ -22,8 +18,11 @@ public class SN_AuditNewInstancePage extends BasePage {
     private static By strTaskID = By.xpath("//span[text() = 'Task ID']//following::input[5]");
     private static By strAssignedto = By.xpath("//span[text() = 'Assigned to']//following::input[5]");
     private static By btnSubmit = By.xpath("//button[@id='submit_button']");
-
     WebDriverWait wait = new WebDriverWait(driver, 20);
+
+    public SN_AuditNewInstancePage(WebDriver driver) {
+        super(driver);
+    }
 
     public void popluateNewAuditField(By locator, String value) throws InterruptedException {
         driver.findElement(locator).sendKeys(value);
@@ -39,7 +38,7 @@ public class SN_AuditNewInstancePage extends BasePage {
         int today1 = Integer.parseInt(dateFormat2.format(date2));
 
 
-        WebElement calendarButton = waitForElement(driver.findElement(By.xpath("//span[text() = '"+label+"']//following::span[@class = 'input-group-btn'][1]")));
+        WebElement calendarButton = waitForElement(driver.findElement(By.xpath("//span[text() = '" + label + "']//following::span[@class = 'input-group-btn'][1]")));
 
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", calendarButton);
         Thread.sleep(500);
@@ -50,8 +49,8 @@ public class SN_AuditNewInstancePage extends BasePage {
         //Find the calendar
         WebElement dataWidget = driver.findElement(By.className("calTable"));
         List<WebElement> columns = dataWidget.findElements(By.tagName("a"));
-        for (WebElement value : columns){
-            if(value.getText().equals(Integer.toString(today1))) {
+        for (WebElement value : columns) {
+            if (value.getText().equals(Integer.toString(today1))) {
                 value.click();
                 value.sendKeys(Keys.ENTER);
                 break;
@@ -82,7 +81,6 @@ public class SN_AuditNewInstancePage extends BasePage {
         return Globals.AUDIT_NO;
 
     }
-
 
 
 }

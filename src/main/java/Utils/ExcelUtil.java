@@ -1,4 +1,5 @@
 package Utils;
+
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -22,40 +23,34 @@ public class ExcelUtil {
 
     //Name of Test data excel file
     public static String testDataExcelName = null;
-
+    //Row Number
+    public static int rowNumber;
+    //Column Number
+    public static int columnNumber;
     //Excel WorkBook
     private static XSSFWorkbook excelWBook;
-
     //Excel Sheet
     private static XSSFSheet excelWSheet;
-
     //Excel cell
     private static XSSFCell cell;
-
     //Excel row
     private static XSSFRow row;
 
-    //Row Number
-    public static int rowNumber;
-
-    //Column Number
-    public static int columnNumber;
+    public static int getRowNumber() {
+        return rowNumber;
+    }
 
     //Setter and Getters of row and columns
     public static void setRowNumber(int pRowNumber) {
         rowNumber = pRowNumber;
     }
 
-    public static int getRowNumber() {
-        return rowNumber;
+    public static int getColumnNumber() {
+        return columnNumber;
     }
 
     public static void setColumnNumber(int pColumnNumber) {
         columnNumber = pColumnNumber;
-    }
-
-    public static int getColumnNumber() {
-        return columnNumber;
     }
 
     // This method has two parameters: "Test data excel file name" and "Excel sheet name"
@@ -125,7 +120,7 @@ public class ExcelUtil {
         }
     }
 
-    public static int getTotalRows(){
+    public static int getTotalRows() {
         int rows = excelWSheet.getLastRowNum();
         return rows;
 

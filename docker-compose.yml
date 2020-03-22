@@ -20,13 +20,13 @@ services:
     environment:
       - HUB_PORT_4444_TCP_ADDR=selenium-hub
       - HUB_PORT_4444_TCP_PORT=4444
-  validatetitle-module:
-    image: vinsdocker/eautomationtest1:googletest
-    container_name: validatetitle
-    depends_on:
-      - firefox
-      - chrome
-    environment:
-      - SELENIUM_HUB=selenium-hub
-    volumes:
-      - C://temaaap:/usr/share/tag/test-output
+  #validatetitle-module:
+  #  image: vinsdocker/eautomationtest1:googletest
+  #  container_name: validatetitle
+  #  depends_on:
+  #    - firefox
+  #    - chrome
+  #  environment:
+  #    - SELENIUM_HUB=selenium-hub
+  #  volumes:
+  #    - C://temaaap:/usr/share/tag/test-output

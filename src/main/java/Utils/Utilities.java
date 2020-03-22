@@ -17,9 +17,8 @@ public class Utilities {
     }
 
 
-
     public static String getRandom() {
-        String[] array = {"Pass","Fail"};
+        String[] array = {"Pass", "Fail"};
         int rnd = new Random().nextInt(array.length);
         return array[rnd];
     }

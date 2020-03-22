@@ -21,13 +21,13 @@ public class stepDefinition extends BaseTest {
 
     @Given("^Click on Login link in home page to land on secure sign in Page$")
     public void click_on_Login_link_in_home_page_to_land_on_secure_sign_in_Page() throws Throwable {
-        LandingPage l=new LandingPage(driver);
+        LandingPage l = new LandingPage(driver);
         l.getLogin().click();
     }
 
     @When("^User enters \"([^\"]*)\" and \"([^\"]*)\" and logs in$")
     public void user_enters_and_and_logs_in(String arg1, String arg2) throws Throwable {
-        LoginPage lp=new LoginPage(driver);
+        LoginPage lp = new LoginPage(driver);
         lp.getEmail().sendKeys(arg1);
         lp.getPassword().sendKeys(arg2);
         lp.getLogin().click();
